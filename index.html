@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Petfood | 대한민국 정부 공인 프리미엄 펫푸드</title>
+  <!-- Tailwind CSS CDN with custom palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#F4F9F5',
+              100: '#E6F3E9',
+              200: '#CBE5D2',
+              300: '#A4D1B0',
+              400: '#75B686',
+              500: '#10B981', // Vibrant fresh green matching user mockup
+              600: '#059669',
+              700: '#047857',
+              800: '#065F46',
+              900: '#064E3B',
+              deep: '#1B4332',
+              forest: '#2D6A4F',
+              tech: '#0B0F12', // Deep contrast dark from user mockup
+              accent: '#00A3FF' // Vibrant cyan accent from user mockup
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    body {
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      word-break: keep-all; /* 단어 단위 줄바꿈으로 가독성 보장 */
+    }
+    /* 4-Quadrant Organic Clover Shapes from User Mockup */
+    .quadrant-tl {
+      border-radius: 40px 14px 14px 40px;
+    }
+    .quadrant-tr {
+      border-radius: 14px 40px 40px 14px;
+    }
+    .quadrant-bl {
+      border-radius: 40px 14px 14px 40px;
+    }
+    .quadrant-br {
+      border-radius: 14px 40px 40px 14px;
+    }
+    .soft-shadow {
+      box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-500 selection:text-white bg-white">
+
+  <!-- ========================================================== -->
+  <!-- Top Bar: Government Trust (Crisp Deep Forest)              -->
+  <!-- ========================================================== -->
+  <div class="bg-brand-deep text-emerald-100 text-xs py-2.5 px-4 border-b border-brand-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 whitespace-nowrap">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-amber-400/25 text-amber-200 border border-amber-300/30 whitespace-nowrap">
+          🇰🇷 대한민국 정부 공인
+        </span>
+        <span class="text-emerald-100 text-xs whitespace-nowrap" data-i18n="topBannerText">농림축산식품부 인증 &middot; 스마트 HACCP 청정 제조 시설 &middot; 전 세계 18개국 수출</span>
+      </div>
+      <div class="flex items-center gap-4 text-emerald-200/90 whitespace-nowrap">
+        <span class="flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-300 shrink-0"></i>
+          <span data-i18n="topBannerQuality">100% 휴먼그레이드 원료</span>
+        </span>
+        <span class="hidden md:inline text-emerald-600">|</span>
+        <span class="flex items-center gap-1.5 hidden md:flex">
+          <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-rose-300 shrink-0"></i>
+          <span data-i18n="topBannerESG">판매액 2.5% 유기동물 보호소 기부</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- Main Navigation Header (Clean Pure White)                  -->
+  <!-- ========================================================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group shrink-0 whitespace-nowrap">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform shrink-0">
+          <i data-lucide="paw-print" class="w-5 h-5"></i>
+        </div>
+        <div class="flex flex-col whitespace-nowrap">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 whitespace-nowrap">K-Petfood</span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-brand-100 text-brand-800 border border-brand-200 whitespace-nowrap">Gov.Certified</span>
+          </div>
+          <span class="text-[11px] text-slate-500 font-medium whitespace-nowrap" data-i18n="logoSub">대한민국 청정 자연이 빚은 프리미엄 펫푸드</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu (Guaranteed Single-Line No-Wrap) -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 shrink-0 whitespace-nowrap">
+        <a href="#hero" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navNature">신선함과 자연</a>
+        <a href="#certification" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navCert">정부 공인 & 시설</a>
+        <a href="#ingredients" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navIngredients">K-특산 원재료</a>
+        <a href="#traceability" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navTrace">생산 이력 조회</a>
+        <a href="#products" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navProducts">제품 라인업</a>
+        <a href="#global" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navGlobal">수출 & 소비</a>
+        <a href="#csr" class="px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-bold text-slate-700 hover:text-brand-600 rounded-lg hover:bg-slate-50 transition whitespace-nowrap tracking-tight" data-i18n="navCSR">사회적 기여</a>
+      </nav>
+
+      <!-- Right Action Items: Language Toggle & B2B Button -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
+        <!-- Language Switcher Toggle (KO / EN) -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 hover:border-brand-500 bg-white text-xs font-bold text-slate-700 transition shadow-sm whitespace-nowrap shrink-0">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-600 shrink-0"></i>
+          <span id="langCurrent" class="whitespace-nowrap">한국어</span>
+          <span class="text-slate-300">|</span>
+          <span id="langTarget" class="text-slate-400 hover:text-brand-600 font-semibold whitespace-nowrap">ENG</span>
+        </button>
+
+        <!-- B2B Buyer Inquiry Button -->
+        <button onclick="openBuyerModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 hover:bg-brand-700 text-white text-xs font-bold tracking-tight shadow-sm hover:shadow transition whitespace-nowrap shrink-0">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i>
+          <span class="whitespace-nowrap" data-i18n="btnBuyerInquiry">해외 바이어 상담</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 shrink-0">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="#hero" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navNature">신선함과 자연</a>
+      <a href="#certification" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navCert">정부 공인 & 시설</a>
+      <a href="#ingredients" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navIngredients">K-특산 원재료</a>
+      <a href="#traceability" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navTrace">생산 이력 조회</a>
+      <a href="#products" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navProducts">제품 라인업</a>
+      <a href="#global" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navGlobal">수출 & 소비</a>
+      <a href="#csr" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-100" data-i18n="navCSR">사회적 기여</a>
+      <div class="pt-2">
+        <button onclick="openBuyerModal(); toggleMobileMenu();" class="w-full py-2.5 rounded-full bg-slate-900 text-white font-bold text-sm flex items-center justify-center gap-2">
+          <i data-lucide="briefcase" class="w-4 h-4 text-amber-300"></i>
+          <span data-i18n="btnBuyerInquiry">해외 바이어 상담</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 1: HERO "FRESHNESS" SHOWCASE (LIGHT THEME - FROM USER MOCKUP TOP) -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Side: Clean Typography from Mockup -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-400 uppercase" data-i18n="mockupLabel">Discover</span>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-[#0D9488] leading-none" data-i18n="mockupTitle">
+              Freshness
+            </h1>
+            <!-- Accent Horizontal Line from Mockup -->
+            <div class="w-20 h-1.5 bg-[#0284C7] rounded-full mt-4 mb-6"></div>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 leading-snug" data-i18n="heroTitleMain">
+            사람과 반려동물이 함께 누리는<br>
+            <span class="text-brand-600">대한민국 정부 공인 프리미엄 K-펫푸드</span>
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl" data-i18n="mockupDesc">
+            Explore a vibrant harvest of organic, seasonal fruits and vegetables, bursting with flavors. Unveil a paramount selection of naturally delicious and nutritious premium produce sourced directly from local Korean farms!
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-xl" data-i18n="heroDesc">
+            국산 가루쌀, 6년근 고려 인삼, 청정 완도 해조류, 유기농 감자·고구마. 대한민국 청정 자연의 비옥한 토양과 맑은 해역에서 수확한 100% 휴먼그레이드 식재료로 제조합니다.
+          </p>
+
+          <!-- Signature Green Pill Button from Mockup -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a href="#products" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#10B981] hover:bg-[#059669] text-white font-bold text-sm tracking-wide shadow-lg shadow-emerald-500/25 hover:shadow-xl transition-all hover:scale-105 duration-200">
+              <span data-i18n="mockupBtnShop">Shop Now</span>
+            </a>
+            <button onclick="openTraceModal('KPF-2026-DOG01')" class="inline-flex items-center justify-center px-6 py-3.5 rounded-full border border-slate-300 hover:border-slate-800 text-slate-700 hover:text-slate-900 font-bold text-sm transition">
+              <i data-lucide="qr-code" class="w-4 h-4 mr-2 text-brand-600"></i>
+              <span data-i18n="heroBtnTrace">생산 이력 샘플 조회</span>
+            </button>
+          </div>
+
+          <!-- Trust Badges Mini Strip -->
+          <div class="pt-6 border-t border-slate-100 flex flex-wrap items-center gap-6 text-xs text-slate-500 font-medium">
+            <div class="flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-amber-500"></i>
+              <span>농림축산식품부 공식 인증</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="leaf" class="w-4 h-4 text-emerald-500"></i>
+              <span>100% 휴먼그레이드</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-sky-500"></i>
+              <span>글루텐 프리 0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: 4-Quadrant Organic Produce Collage (Matching User Mockup) -->
+        <div class="lg:col-span-6 flex justify-center">
+          <div class="relative w-full max-w-[460px] aspect-square p-2">
+            
+            <!-- 2x2 Grid of 4 Organic Produce Quadrants -->
+            <div class="grid grid-cols-2 gap-3.5 w-full h-full">
+              
+              <!-- Quadrant 1: Fresh Green Zucchini / Squash / Veggies -->
+              <div class="relative overflow-hidden quadrant-tl shadow-md group hover:scale-[1.03] transition-transform duration-300">
+                <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=600&q=80" alt="Fresh organic zucchini, squash and vegetables" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span class="text-white text-xs font-bold">유기농 신선 채소</span>
+                </div>
+              </div>
+
+              <!-- Quadrant 2: Fresh Green Marine Seaweeds / Herbs -->
+              <div class="relative overflow-hidden quadrant-tr shadow-md group hover:scale-[1.03] transition-transform duration-300">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80" alt="Clean marine waters and green kelp herbs" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span class="text-white text-xs font-bold">완도 청정 해조류</span>
+                </div>
+              </div>
+
+              <!-- Quadrant 3: Fresh Red Berries & Regional Fruits -->
+              <div class="relative overflow-hidden quadrant-bl shadow-md group hover:scale-[1.03] transition-transform duration-300">
+                <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80" alt="Fresh vibrant strawberries and local fruits" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span class="text-white text-xs font-bold">나주 배 & 베리류</span>
+                </div>
+              </div>
+
+              <!-- Quadrant 4: Purple Cauliflower / Ginseng & Root Crops -->
+              <div class="relative overflow-hidden quadrant-br shadow-md group hover:scale-[1.03] transition-transform duration-300">
+                <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80" alt="Fresh organic potatoes and root vegetables" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span class="text-white text-xs font-bold">고려인삼 & 감자·고구마</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Center Floating Emblem -->
+            <div class="absolute inset-0 m-auto w-16 h-16 rounded-full bg-white shadow-xl flex items-center justify-center p-1.5 border border-slate-100 pointer-events-none">
+              <div class="w-full h-full rounded-full bg-brand-50 flex items-center justify-center text-brand-700">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 2: KOREA'S CLEAN NATURE (SOFT SAGE GREEN THEME - BG #F0F7F2)       -->
+  <!-- ========================================================================= -->
+  <section id="nature" class="py-20 bg-[#F0F7F2] border-y border-emerald-100/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-700 bg-white px-3.5 py-1 rounded-full border border-emerald-200/80 shadow-sm" data-i18n="naturePre">ORIGIN & PURITY</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900" data-i18n="natureTitle">
+          사계절이 빚어낸 대한민국의 청정한 자연
+        </h2>
+        <p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-i18n="natureDesc">
+          유네스코 생물권 보전지역과 삼면을 둘러싼 청정 해역, 비옥한 토양. K-Petfood는 인위적인 첨가물이 필요 없을 만큼 생명력 넘치는 한국의 자연 유산에서 시작됩니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-3xl p-7 border border-emerald-100/90 shadow-sm hover:shadow-lg transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="sun-medium" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-bold text-brand-700 tracking-wider uppercase block mb-1">Terroir & Climate</span>
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5" data-i18n="natureCard1Title">뚜렷한 사계절과 비옥한 토양</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed" data-i18n="natureCard1Desc">
+            일교차가 크고 풍부한 일조량 덕분에 영양소가 농축된 곡물과 채소가 자라납니다. 농약 걱정 없는 비옥한 점토질 토양에서 최상의 프리미엄 원재료가 수확됩니다.
+          </p>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span class="font-semibold text-slate-700">연평균 일조량 2,200+ 시간</span>
+            <span class="text-brand-700 font-bold">자연 농축 영양</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-3xl p-7 border border-emerald-100/90 shadow-sm hover:shadow-lg transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="waves" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-bold text-sky-700 tracking-wider uppercase block mb-1">Clean Waters</span>
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5" data-i18n="natureCard2Title">완도·남해의 청정 맥반석 해역</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed" data-i18n="natureCard2Desc">
+            맥반석 바닥층을 통과한 미네랄이 풍부한 한국의 청정 해역에서 채취한 미역과 다시마는 오메가-3와 후코이단이 풍부하여 반려동물의 피모와 면역력을 자연 치유합니다.
+          </p>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span class="font-semibold text-slate-700">중금속 제로(0%) 해역</span>
+            <span class="text-sky-700 font-bold">해양수산부 인증</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-3xl p-7 border border-emerald-100/90 shadow-sm hover:shadow-lg transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="mountain-snow" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-700 tracking-wider uppercase block mb-1">Pure Groundwater</span>
+          <h3 class="text-xl font-bold text-slate-900 mb-2.5" data-i18n="natureCard3Title">지리산 자락 천연 암반수 제조</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed" data-i18n="natureCard3Desc">
+            사료 제조 시 사용되는 공정수는 지하 300m 화강암반층에서 끌어올린 천연 미네랄 음용수만을 사용하여 소화 흡수율을 극대화하고 신장 건강을 보호합니다.
+          </p>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span class="font-semibold text-slate-700">천연 미네랄 pH 7.4 약알칼리</span>
+            <span class="text-amber-700 font-bold">100% 식음료 규격</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 3: GOVERNMENT CERTIFICATION & SMART PLANT                         -->
+  <!-- (DEEP HIGH-TECH DARK THEME - FROM USER MOCKUP BOTTOM HALF!)               -->
+  <!-- ========================================================================= -->
+  <section id="certification" class="py-20 lg:py-28 bg-[#0B0F12] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Side: 4-Quadrant High-Tech Smart Factory Collage (Matching Mockup Layout) -->
+        <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+          <div class="relative w-full max-w-[460px] aspect-square p-2">
+            
+            <div class="grid grid-cols-2 gap-3.5 w-full h-full">
+              <!-- High-Tech Quadrant 1: Cleanroom -->
+              <div class="relative overflow-hidden quadrant-tl border border-white/10 shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Class 1000 Cleanroom Sterile Line" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
+                  <span class="text-cyan-300 text-xs font-bold">Class 1,000 무균 클린룸</span>
+                </div>
+              </div>
+
+              <!-- High-Tech Quadrant 2: Bio Laboratory -->
+              <div class="relative overflow-hidden quadrant-tr border border-white/10 shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Nutritional Bio Lab Analysis" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
+                  <span class="text-cyan-300 text-xs font-bold">150종 유해물질 0% 검증</span>
+                </div>
+              </div>
+
+              <!-- High-Tech Quadrant 3: Automated Extrusion System -->
+              <div class="relative overflow-hidden quadrant-bl border border-white/10 shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Automated Smart HACCP Packing Line" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
+                  <span class="text-cyan-300 text-xs font-bold">스마트 IoT 자동화 라인</span>
+                </div>
+              </div>
+
+              <!-- High-Tech Quadrant 4: 3D X-Ray Inspection -->
+              <div class="relative overflow-hidden quadrant-br border border-white/10 shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="3D X-Ray Foreign Matter Scanner" class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-4">
+                  <span class="text-cyan-300 text-xs font-bold">3D X-Ray 이물질 차단</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center Floating Tech Badge -->
+            <div class="absolute inset-0 m-auto w-16 h-16 rounded-full bg-slate-900 border border-cyan-400/40 shadow-2xl flex items-center justify-center pointer-events-none">
+              <i data-lucide="shield-check" class="w-7 h-7 text-cyan-400"></i>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Side: Dark Typography from Mockup (Glow Title + Cyan Pill Button) -->
+        <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+          <div class="space-y-2">
+            <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-400 uppercase" data-i18n="certBadge">Republic of Korea Official Endorsement</span>
+            <!-- Glowing High-Tech Title -->
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 leading-tight">
+              Science & Purity
+            </h2>
+            <!-- Cyan Accent Bar from Mockup -->
+            <div class="w-20 h-1.5 bg-[#00A3FF] rounded-full mt-4 mb-6"></div>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white leading-snug" data-i18n="certTitle">
+            대한민국 정부가 공식 인정한<br>
+            최첨단 안전 기준과 무균 스마트 팩토리
+          </h3>
+
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="certDesc">
+            K-Petfood는 대한민국 농림축산식품부 및 국가 공인 검사기관의 150여 가지 유해물질 불검출 검증을 통과하였습니다. 충북 오송 바이오 밸리 스마트 공장에서 미국 AAFCO 및 유럽 FEDIAF 영양 기준을 100% 충족하여 생산됩니다.
+          </p>
+
+          <!-- 4 Government Trust Pills -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex items-center gap-3">
+              <i data-lucide="badge-check" class="w-5 h-5 text-amber-400 shrink-0"></i>
+              <span class="text-xs text-slate-200 font-bold" data-i18n="certItem1Title">정부 공식 품질 보증</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex items-center gap-3">
+              <i data-lucide="binary" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+              <span class="text-xs text-slate-200 font-bold" data-i18n="certItem2Title">스마트 HACCP 공인</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex items-center gap-3">
+              <i data-lucide="sparkle" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              <span class="text-xs text-slate-200 font-bold" data-i18n="certItem3Title">유기농 가공식품 인증</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex items-center gap-3">
+              <i data-lucide="file-badge" class="w-5 h-5 text-indigo-400 shrink-0"></i>
+              <span class="text-xs text-slate-200 font-bold" data-i18n="certItem4Title">ISO 22000 & FDA</span>
+            </div>
+          </div>
+
+          <!-- Cyan Pill Button from User Mockup -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <button onclick="openBuyerModal()" class="px-8 py-3.5 rounded-full bg-[#00A3FF] hover:bg-[#0284C7] text-white font-black text-sm tracking-wide shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all hover:scale-105 duration-200">
+              <span data-i18n="btnFactoryAudit">공장 실사 리포트 요청</span>
+            </button>
+            <div class="text-xs text-slate-400 font-mono">
+              월 550 M/T 멸균 자동화 설비 가동 중
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 4: K-SPECIALTY INGREDIENTS & HONEST PRODUCERS (CRISP WHITE THEME)  -->
+  <!-- ========================================================================= -->
+  <section id="ingredients" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-700 bg-brand-50 px-3.5 py-1 rounded-full border border-emerald-200" data-i18n="ingPre">REGIONAL SPECIALTIES & PRODUCERS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900" data-i18n="ingTitle">
+          정직한 농어민이 키운 대한민국 명품 특산 원재료
+        </h2>
+        <p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-i18n="ingDesc">
+          가루쌀, 완도 해조류, 고려 인삼, 고구마, 감자, 유기농 채소까지. 
+          전국 각지의 생산 농어민들이 내 가족 반려동물을 먹인다는 신념으로 수확한 정직한 원재료입니다.
+        </p>
+      </div>
+
+      <!-- Grid of 6 Core Ingredients with Farmer/Fisherman Photos (FIXED FISHERMAN IMAGE) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. 가루쌀 + 해남 쌀 농부 김태진 님 -->
+        <div class="bg-[#FAFBF9] rounded-3xl border border-slate-200/80 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80" alt="Smiling Korean rice farmer in sunny rice field" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white">
+              <span class="text-[10px] font-bold text-amber-300 uppercase tracking-wider block">Eco-Rice Master</span>
+              <h4 class="text-sm font-bold flex items-center justify-between">
+                <span>생산자: 해남 김태진 농부 (3대 가업)</span>
+                <span class="text-[10px] bg-emerald-500/80 px-2 py-0.5 rounded-full font-normal">농가 직수급</span>
+              </h4>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200" data-i18n="ing1Region">전남 해남 / 전북 익산</span>
+              <span class="text-xs font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded" data-i18n="tagGlutenFree">100% 글루텐 프리</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="ing1Name">국산 K-가루쌀 (Milled Rice Flour)</h3>
+            <p class="text-slate-600 text-xs leading-relaxed" data-i18n="ing1Desc">
+              밀가루 대체 신소재로 농촌진흥청이 육성한 특화 품종. 전분 손상이 적고 물 흡수성이 우수하여 민감한 반려동물의 장내 소화 흡수율을 98%까지 끌어올립니다.
+            </p>
+            <div class="mt-3 p-2.5 rounded-xl bg-white border border-emerald-100 text-[11px] text-slate-600 italic">
+              "내 손주 같은 강아지가 먹는다 생각하고 제초제 없이 황토 우렁이 농법으로 키웁니다."
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-brand-50/60 border-t border-emerald-100/70 text-[11px] text-slate-600 flex justify-between items-center">
+            <span data-i18n="ing1Benefit">소화 장애 예방 & 저알러지</span>
+            <span class="text-brand-700 font-bold">농림축산식품부 장려</span>
+          </div>
+        </div>
+
+        <!-- 2. 청정 해조류 + 완도 어민 박정호 선장님 (100% RELIABLE VERIFIED IMAGE WITH ONERROR FALLBACK) -->
+        <div class="bg-[#FAFBF9] rounded-3xl border border-slate-200/80 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+          <div class="relative h-48 overflow-hidden bg-slate-800">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80';"
+                 alt="Wando clean ocean seaweed harvest" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white">
+              <span class="text-[10px] font-bold text-sky-300 uppercase tracking-wider block">Marine Kelp Captain</span>
+              <h4 class="text-sm font-bold flex items-center justify-between">
+                <span>생산자: 완도 청정해역 박정호 선장 (25년 경력)</span>
+                <span class="text-[10px] bg-sky-500/80 px-2 py-0.5 rounded-full font-normal">맥반석 해역</span>
+              </h4>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-sky-50 text-sky-800 text-xs font-bold border border-sky-200" data-i18n="ing2Region">전남 완도 청정해역</span>
+              <span class="text-xs font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded" data-i18n="tagMarine">천연 오메가-3</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="ing2Name">완도 다시마 & 쇠미역 (Kelp & Seaweed)</h3>
+            <p class="text-slate-600 text-xs leading-relaxed" data-i18n="ing2Desc">
+              청정 남해의 맥반석 암초 지대에서 채취. 후코이단과 천연 요오드, 미네랄이 풍부하여 면역 세포를 활성화하고 반려동물의 윤기 있는 피모 형성을 촉진합니다.
+            </p>
+            <div class="mt-3 p-2.5 rounded-xl bg-white border border-sky-100 text-[11px] text-slate-600 italic">
+              "맥반석 바다의 맑은 조류를 머금은 다시마만 선별해 깨끗하게 자연 건조합니다."
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-sky-50/60 border-t border-sky-100/70 text-[11px] text-slate-600 flex justify-between items-center">
+            <span data-i18n="ing2Benefit">천연 피모 보습 & 면역 증강</span>
+            <span class="text-sky-700 font-bold">수산물이력제 등록</span>
+          </div>
+        </div>
+
+        <!-- 3. 고려 인삼 & 홍삼 + 금산 인삼 명인 최순길 님 -->
+        <div class="bg-[#FAFBF9] rounded-3xl border border-slate-200/80 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80" alt="Proud elderly ginseng farmer holding harvest" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white">
+              <span class="text-[10px] font-bold text-red-300 uppercase tracking-wider block">Ginseng Master</span>
+              <h4 class="text-sm font-bold flex items-center justify-between">
+                <span>생산자: 금산 6년근 인삼 최순길 명인</span>
+                <span class="text-[10px] bg-red-500/80 px-2 py-0.5 rounded-full font-normal">GAP 인증</span>
+              </h4>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-red-50 text-red-800 text-xs font-bold border border-red-200" data-i18n="ing3Region">충남 금산 / 풍기</span>
+              <span class="text-xs font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded" data-i18n="tagGinseng">진세노사이드 함유</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="ing3Name">6년근 고려 인삼 & 홍삼 (Korean Red Ginseng)</h3>
+            <p class="text-slate-600 text-xs leading-relaxed" data-i18n="ing3Desc">
+              한국의 대표 영약 인삼의 사포닌 성분을 반려동물 맞춤 저분자 발효 공법으로 가공. 노령견과 노령묘의 원기 회복 및 심혈관 면역력을 획기적으로 보조합니다.
+            </p>
+            <div class="mt-3 p-2.5 rounded-xl bg-white border border-red-100 text-[11px] text-slate-600 italic">
+              "6년의 세월을 땅속에서 기다린 귀한 인삼을 반려동물의 소화에 맞춰 정성껏 담았습니다."
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-red-50/60 border-t border-red-100/70 text-[11px] text-slate-600 flex justify-between items-center">
+            <span data-i18n="ing3Benefit">노령기 활력 증진 & 심혈관 보호</span>
+            <span class="text-red-700 font-bold">금산 인삼 농가 직수급</span>
+          </div>
+        </div>
+
+        <!-- 4. 해남 꿀고구마 & 강원 감자 + 강민철 농부님 -->
+        <div class="bg-[#FAFBF9] rounded-3xl border border-slate-200/80 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80" alt="Farmer holding fresh organic potatoes and sweet potatoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white">
+              <span class="text-[10px] font-bold text-orange-300 uppercase tracking-wider block">Alpine Soil Farmer</span>
+              <h4 class="text-sm font-bold flex items-center justify-between">
+                <span>생산자: 해남 황토 & 평창 강민철 농부</span>
+                <span class="text-[10px] bg-orange-500/80 px-2 py-0.5 rounded-full font-normal">지리적표시</span>
+              </h4>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-bold border border-orange-200" data-i18n="ing4Region">전남 해남 / 강원 평창</span>
+              <span class="text-xs font-semibold text-orange-700 bg-orange-50 px-2 py-0.5 rounded" data-i18n="tagFiber">식이섬유 풍부</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="ing4Name">해남 꿀고구마 & 고랭지 감자 (Sweet Potato & Potato)</h3>
+            <p class="text-slate-600 text-xs leading-relaxed" data-i18n="ing4Desc">
+              미네랄 황토에서 자란 해남 고구마와 해발 700m 강원 고랭지 감자는 유익한 식이섬유와 펙틴이 풍부하여 변비 개선 및 혈당 스파이크를 방지하는 건강한 탄수화물원입니다.
+            </p>
+            <div class="mt-3 p-2.5 rounded-xl bg-white border border-orange-100 text-[11px] text-slate-600 italic">
+              "일교차가 큰 고랭지 흙에서 자라 단단하고 영양이 꽉 찬 감자와 고구마만 엄선합니다."
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-orange-50/60 border-t border-orange-100/70 text-[11px] text-slate-600 flex justify-between items-center">
+            <span data-i18n="ing4Benefit">장내 유익균 배양 & 포만감 유지</span>
+            <span class="text-orange-700 font-bold">지리적 표시제 품목</span>
+          </div>
+        </div>
+
+        <!-- 5. 지역 특산 과일 + 나주 배 과수원 이숙자 명인 -->
+        <div class="bg-[#FAFBF9] rounded-3xl border border-slate-200/80 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" alt="Smiling Korean orchard grower with fresh pear harvest" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white">
+              <span class="text-[10px] font-bold text-lime-300 uppercase tracking-wider block">Orchard Specialist</span>
+              <h4 class="text-sm font-bold flex items-center justify-between">
+                <span>생산자: 나주 배 과수원 이숙자 대표 (40년 가업)</span>
+                <span class="text-[10px] bg-lime-600/80 px-2 py-0.5 rounded-full font-normal">자연농법</span>
+              </h4>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-lime-50 text-lime-800 text-xs font-bold border border-lime-200" data-i18n="ing5Region">전남 나주 / 제주 서귀포</span>
+              <span class="text-xs font-semibold text-lime-700 bg-lime-50 px-2 py-0.5 rounded" data-i18n="tagFruit">천연 항산화제</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="ing5Name">나주 배 & 제주 블루베리 & 감귤 (Local Fruits)</h3>
+            <p class="text-slate-600 text-xs leading-relaxed" data-i18n="ing5Desc">
+              나주 배의 루테올린 성분은 기관지와 호흡기 건강을 돕고, 유기농 블루베리의 안토시아닌은 노화 방지 및 안구 망막 건강을 안전하게 보호합니다.
+            </p>
+            <div class="mt-3 p-2.5 rounded-xl bg-white border border-lime-100 text-[11px] text-slate-600 italic">
+              "달콤하고 시원한 나주 배의 맑은 즙을 껍질째 정직하게 착즙해 사료에 배합합니다."
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-lime-50/60 border-t border-lime-100/70 text-[11px] text-slate-600 flex justify-between items-center">
+            <span data-i18n="ing5Benefit">호흡기 보호 & 눈 건강 서포트</span>
+            <span class="text-lime-700 font-bold">GAP 우수농산물 인증</span>
+          </div>
+        </div>
+
+        <!-- 6. 유기농 신선 채소 + 청년 유기농 농부 정해원 님 -->
+        <div class="bg-[#FAFBF9] rounded-3xl border border-slate-200/80 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1584473457406-6240486418e9?auto=format&fit=crop&w=800&q=80" alt="Young passionate organic vegetable greenhouse farmer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 text-white">
+              <span class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider block">Young Eco Farmer</span>
+              <h4 class="text-sm font-bold flex items-center justify-between">
+                <span>생산자: 부여 스마트 친환경 청년농 정해원 님</span>
+                <span class="text-[10px] bg-emerald-600/80 px-2 py-0.5 rounded-full font-normal">무농약 공인</span>
+              </h4>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200" data-i18n="ing6Region">충남 부여 / 경기 양평</span>
+              <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded" data-i18n="tagVeg">100% 무농약 유기농</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="ing6Name">유기농 단호박 & 당근 & 브로콜리 (Organic Veggies)</h3>
+            <p class="text-slate-600 text-xs leading-relaxed" data-i18n="ing6Desc">
+              화학 비료와 살충제 없이 재배한 대한민국 친환경 유기농 채소. 천연 베타카로틴과 설포라판이 풍부하여 체내 활성산소를 억제하고 신장 요로계 결석 생성을 방지합니다.
+            </p>
+            <div class="mt-3 p-2.5 rounded-xl bg-white border border-emerald-100 text-[11px] text-slate-600 italic">
+              "화학 비료 제로! 흙과 곤충, 동물이 모두 함께 상생하는 지속가능한 유기농을 고집합니다."
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-emerald-50/60 border-t border-emerald-100/70 text-[11px] text-slate-600 flex justify-between items-center">
+            <span data-i18n="ing6Benefit">세포 노화 방지 & 체내 독소 배출</span>
+            <span class="text-brand-700 font-bold">국립농산물품질관리원 공인</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 5: TRACEABILITY SYSTEM (DEEP FOREST GREEN THEME - BG #1B4332)     -->
+  <!-- ========================================================================= -->
+  <section id="traceability" class="py-20 bg-brand-deep text-white border-y border-brand-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-5 space-y-4">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-bold border border-emerald-300/30">
+            <i data-lucide="scan-line" class="w-3.5 h-3.5"></i>
+            <span data-i18n="traceBadge">End-to-End Batch Transparency</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white" data-i18n="traceTitle">
+            원재료 수확부터 완제품 생산까지<br>
+            <span class="text-amber-300">투명한 전 주기 이력 추적 시스템</span>
+          </h2>
+          <p class="text-emerald-100/90 text-xs sm:text-sm leading-relaxed" data-i18n="traceDesc">
+            바이어와 소비자가 제품 패키지에 인쇄된 고유 롯트(Lot) 번호를 입력하면, 원재료의 수확일시, 산지 농가, 잔류농약 검사 결과 및 완제품의 스마트 팩토리 제조일시를 1초 만에 실시간으로 확인하실 수 있습니다.
+          </p>
+
+          <!-- Sample Lot Clickers -->
+          <div class="pt-2">
+            <div class="text-[11px] text-emerald-200 mb-2 font-semibold" data-i18n="traceSamplePrompt">클릭하여 샘플 롯트번호 바로 테스트:</div>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="setBatchInput('KPF-2026-DOG01')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-emerald-200 text-xs font-mono border border-white/20 transition whitespace-nowrap">
+                #KPF-2026-DOG01 (강아지 식사)
+              </button>
+              <button onclick="setBatchInput('KPF-2026-CAT03')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-amber-200 text-xs font-mono border border-white/20 transition whitespace-nowrap">
+                #KPF-2026-CAT03 (고양이 건강식)
+              </button>
+              <button onclick="setBatchInput('KPF-2026-TREAT05')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-sky-200 text-xs font-mono border border-white/20 transition whitespace-nowrap">
+                #KPF-2026-TREAT05 (인삼 영양간식)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trace Search Card & Result Box -->
+        <div class="lg:col-span-7 bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur-md">
+          <div class="flex flex-col sm:flex-row gap-2 mb-6">
+            <div class="relative flex-1">
+              <i data-lucide="barcode" class="w-4 h-4 text-emerald-300 absolute left-3.5 top-3.5"></i>
+              <input id="batchSearchInput" type="text" placeholder="롯트 번호 입력 (예: KPF-2026-DOG01)" value="KPF-2026-DOG01" class="w-full bg-black/30 text-sm pl-10 pr-4 py-2.5 rounded-xl border border-white/20 text-white placeholder-emerald-200/60 focus:outline-none focus:border-emerald-300 font-mono">
+            </div>
+            <button onclick="executeBatchSearch()" class="px-6 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 text-sm font-black rounded-xl transition flex items-center justify-center gap-2 shrink-0">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span data-i18n="btnRunTrace">이력 조회하기</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Result Card -->
+          <div id="traceResultDisplay" class="bg-black/30 rounded-xl p-5 border border-white/10 space-y-4">
+            <!-- Content filled via JavaScript -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 6: PRODUCT LINEUP (SOFT CLEAN NEUTRAL THEME - BG #F8FAF9)          -->
+  <!-- ========================================================================= -->
+  <section id="products" class="py-20 bg-[#F8FAF9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="space-y-3">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-700 bg-brand-100/70 px-3 py-1 rounded-full border border-brand-200" data-i18n="prodPre">PRODUCT SHOWCASE</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900" data-i18n="prodTitle">
+            반려동물 맞춤형 프리미엄 제품군
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base" data-i18n="prodDesc">
+            강아지와 고양이의 생애주기별 영양 요구량에 맞춰 주식, 천연 간식, 질병 보조 건강식으로 세분화하였습니다.
+          </p>
+        </div>
+
+        <!-- Species Filter (Dog vs Cat vs All) -->
+        <div class="flex items-center gap-1.5 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
+          <button onclick="filterSpecies('all')" id="btnSpeciesAll" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-900 text-white shadow-sm whitespace-nowrap">
+            <span data-i18n="filterAll">전체 보기</span>
+          </button>
+          <button onclick="filterSpecies('dog')" id="btnSpeciesDog" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 hover:text-brand-700 flex items-center gap-1.5 whitespace-nowrap">
+            <i data-lucide="dog" class="w-3.5 h-3.5"></i>
+            <span data-i18n="filterDog">강아지 (Dog)</span>
+          </button>
+          <button onclick="filterSpecies('cat')" id="btnSpeciesCat" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 hover:text-brand-700 flex items-center gap-1.5 whitespace-nowrap">
+            <i data-lucide="cat" class="w-3.5 h-3.5"></i>
+            <span data-i18n="filterCat">고양이 (Cat)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs: Meal / Treat / Functional Health -->
+      <div class="flex flex-wrap items-center gap-2 mb-8 border-b border-slate-200 pb-4">
+        <button onclick="filterCategory('all')" id="btnCatAll" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-900 text-white shadow-sm whitespace-nowrap" data-i18n="catTabAll">
+          모든 카테고리
+        </button>
+        <button onclick="filterCategory('meal')" id="btnCatMeal" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-600 border border-slate-200 hover:border-brand-400 whitespace-nowrap" data-i18n="catTabMeal">
+          🍚 1. 주식 / 식사 (Complete Meals)
+        </button>
+        <button onclick="filterCategory('treat')" id="btnCatTreat" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-600 border border-slate-200 hover:border-brand-400 whitespace-nowrap" data-i18n="catTabTreat">
+          🥕 2. 영양 간식 (Natural Treats)
+        </button>
+        <button onclick="filterCategory('health')" id="btnCatHealth" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-600 border border-slate-200 hover:border-brand-400 whitespace-nowrap" data-i18n="catTabHealth">
+          🩺 3. 특정 질병 보조 건강식 (Functional Care)
+        </button>
+      </div>
+
+      <!-- Products Grid (Rendered by JS) -->
+      <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Javascript injects product cards -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 7: GLOBAL EXPORT & CONSUMPTION (COOL SLATE THEME - BG #EEF3F8)    -->
+  <!-- ========================================================================= -->
+  <section id="global" class="py-20 bg-[#EEF3F8] border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-sky-800 bg-sky-100 px-3.5 py-1 rounded-full border border-sky-200" data-i18n="globalPre">GLOBAL FOOTPRINT</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900" data-i18n="globalTitle">
+          대한민국을 넘어 세계에서 사랑받는 K-Petfood
+        </h2>
+        <p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-i18n="globalDesc">
+          국내 주요 대도시 전문 클리닉과 백화점은 물론, 미국·일본·유럽·동남아 등 전 세계 18개국 바이어를 통해 글로벌 반려가구 식탁에 오르고 있습니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Left: Global Distribution Map in White Card -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200 shadow-md">
+          <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
+            <div>
+              <span class="text-xs font-bold text-sky-700 uppercase tracking-wider block" data-i18n="exportStatus">Export Destinations & Volume</span>
+              <h3 class="text-xl font-bold text-slate-900" data-i18n="exportTitle">전 세계 수출 네트워크 현황</h3>
+            </div>
+            <div class="px-3 py-1 rounded-full bg-sky-50 text-sky-800 border border-sky-200 text-xs font-mono font-bold">
+              18 Countries Active
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 hover:border-sky-400 transition">
+              <div class="flex items-center justify-between text-sm font-bold text-slate-900 mb-1">
+                <span class="flex items-center gap-1.5">🇺🇸 북미 (미국 & 캐나다)</span>
+                <span class="text-xs text-amber-600 font-mono font-bold">AAFCO 승인</span>
+              </div>
+              <p class="text-xs text-slate-600" data-i18n="exportUSA">가루쌀 기반 알러지 안심 주식 및 기능성 관절 포뮬러 주력 수출 (연 180톤)</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 hover:border-sky-400 transition">
+              <div class="flex items-center justify-between text-sm font-bold text-slate-900 mb-1">
+                <span class="flex items-center gap-1.5">🇯🇵 일본 (도쿄, 오사카)</span>
+                <span class="text-xs text-amber-600 font-mono font-bold">MAFF 통과</span>
+              </div>
+              <p class="text-xs text-slate-600" data-i18n="exportJPN">고양이 요로계/신장 케어 완도 해조류 캔 및 고려 인삼 노령견 트릿 인기</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 hover:border-sky-400 transition">
+              <div class="flex items-center justify-between text-sm font-bold text-slate-900 mb-1">
+                <span class="flex items-center gap-1.5">🇸🇬 동남아 (싱가포르 & 베트남)</span>
+                <span class="text-xs text-amber-600 font-mono font-bold">SFA 통과</span>
+              </div>
+              <p class="text-xs text-slate-600" data-i18n="exportSEA">K-컬처 프리미엄 브랜드샵 및 대형 펫전문 메디컬 센터 독점 공급</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 hover:border-sky-400 transition">
+              <div class="flex items-center justify-between text-sm font-bold text-slate-900 mb-1">
+                <span class="flex items-center gap-1.5">🇩🇪 유럽 (독일 & 프랑스)</span>
+                <span class="text-xs text-amber-600 font-mono font-bold">FEDIAF 준수</span>
+              </div>
+              <p class="text-xs text-slate-600" data-i18n="exportEU">100% 비건 유기농 채소 트릿 & 가루쌀 처방식 사료 샘플 수출</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-100 flex items-center justify-between text-xs text-slate-700">
+            <span>수출 통관 필요 서류(검역증명서, 자유판매증명서 등) 상시 완비</span>
+            <button onclick="openBuyerModal()" class="text-sky-700 font-bold hover:underline flex items-center gap-1">
+              <span>바이어 서류 요청</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Domestic Consumption Hubs -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center font-black">
+                KR
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900" data-i18n="domTitle">대한민국 내수 유통 현황</h4>
+                <p class="text-xs text-slate-500" data-i18n="domSub">전국 450여 개 전문 채널 공급</p>
+              </div>
+            </div>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5"></i>
+                <span data-i18n="domItem1"><strong>서울·수도권:</strong> 강남·분당 소재 대형 동물 2차 메디컬 센터 70여 곳 처방식 공급</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5"></i>
+                <span data-i18n="domItem2"><strong>백화점 & 프리미엄 몰:</strong> 현대백화점 루이독, 갤러리아 프리미엄 펫존 공식 입점</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5"></i>
+                <span data-i18n="domItem3"><strong>영남 & 호남 & 충청권:</strong> 지역 특산 농가와 연계한 로컬 푸드 직배송 및 플래그십 스토어</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Buyer Quick Callout Box in White -->
+          <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <h4 class="text-base font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="globe" class="w-5 h-5 text-sky-600"></i>
+              <span data-i18n="buyerBoxTitle">해외 수입 및 독점 유통권 상담</span>
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed" data-i18n="buyerBoxDesc">
+              국가별 검역 조건에 맞춘 맞춤형 라벨링, 영문 성분 분석표, OEM/ODM 개발 및 FCL/LCL 컨테이너 선적 스케줄을 전문 수출팀이 1:1로 지원합니다.
+            </p>
+            <button onclick="openBuyerModal()" class="w-full py-2.5 rounded-full bg-slate-900 hover:bg-sky-700 text-white text-xs font-bold transition shadow-sm">
+              <span data-i18n="btnConsultBuyer">국가별 바이어 견적 문의하기</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 8: CSR & SOCIAL IMPACT (DEEP MIDNIGHT CHARCOAL THEME - BG #111827) -->
+  <!-- ========================================================================= -->
+  <section id="csr" class="py-20 bg-[#111827] text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3.5 py-1 rounded-full border border-rose-400/20" data-i18n="csrPre">GIVING BACK TO COMPANIONS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white" data-i18n="csrTitle">
+          생명을 살리는 K-Petfood의 따뜻한 나눔
+        </h2>
+        <p class="text-slate-300 leading-relaxed text-sm sm:text-base" data-i18n="csrDesc">
+          K-Petfood는 모든 제품 판매금액의 2.5%를 사회적 취약계층 반려가구 지원과 유기동물 보호소 완제품 기부 펀드로 자동 적립합니다.
+        </p>
+      </div>
+
+      <!-- Human and Animal Companionship Visual Insert -->
+      <div class="mb-12 rounded-3xl overflow-hidden relative h-56 sm:h-72 shadow-xl border border-white/10">
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=1600&q=80" alt="Person embracing shelter rescue dog with love" class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+        <div class="absolute inset-0 flex flex-col justify-center px-8 sm:px-12 text-white max-w-xl">
+          <span class="text-xs font-bold text-amber-300 uppercase tracking-widest mb-1">Rescue & Love</span>
+          <h3 class="text-2xl sm:text-3xl font-black mb-2">모든 생명은 존중받고 영양을 누릴 권리가 있습니다</h3>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">우리가 만든 프리미엄 사료 한 포가 유기동물에게는 희망의 내일이 되고, 홀몸 어르신의 소중한 벗에게는 따뜻한 온기가 됩니다.</p>
+        </div>
+      </div>
+
+      <!-- 3 CSR Pillar Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-rose-400/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center mb-5">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2" data-i18n="csr1Title">판매금액의 2.5% 기부 적립</h3>
+          <p class="text-slate-300 text-xs leading-relaxed" data-i18n="csr1Desc">
+            바이어와 고객이 구매하는 모든 제품의 매출액 중 2.5%를 기금으로 조성하여 경제적 어려움으로 치료나 사료 구입이 힘든 독거노인 및 기초수급 가구의 반려동물에게 무상 전달합니다.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-emerald-400/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5">
+            <i data-lucide="home" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2" data-i18n="csr2Title">전국 유기견/유기묘 센터 정기 기부</h3>
+          <p class="text-slate-300 text-xs leading-relaxed" data-i18n="csr2Desc">
+            농림축산식품부 등록 전국 12개 비영리 사설/직영 유기동물 보호센터에 매월 1,500kg의 신선한 정품 사료를 직접 배송하여 영양실조와 질병을 예방합니다.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-amber-400/50 transition">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-5">
+            <i data-lucide="handshake" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2" data-i18n="csr3Title">입양 축하 키트 지원</h3>
+          <p class="text-slate-300 text-xs leading-relaxed" data-i18n="csr3Desc">
+            보호소에서 새로운 가족을 만난 입양 반려견·반려묘에게 3개월치 가루쌀 건강식 주식과 영양 간식, 수의사 건강 가이드북으로 구성된 웰컴 패키지를 전액 무료 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- Real-time Donation Counter Card -->
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl">
+        <div class="text-center mb-6">
+          <span class="text-xs font-bold text-amber-300 uppercase tracking-widest block" data-i18n="csrLiveTag">Cumulative Social Impact Tracker</span>
+          <h4 class="text-2xl font-black text-white" data-i18n="csrLiveTitle">실시간 누적 사회적 기여 현황</h4>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div class="p-4 rounded-2xl bg-black/30 border border-white/5">
+            <span class="text-xs text-slate-400 block" data-i18n="csrStat1Label">누적 기부 사료 (kg)</span>
+            <span class="text-3xl font-black text-emerald-400 font-mono mt-1 block">48,250 kg</span>
+            <span class="text-[10px] text-slate-400 mt-1 block" data-i18n="csrStat1Sub">약 240,000끼 식사 지원</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/30 border border-white/5">
+            <span class="text-xs text-slate-400 block" data-i18n="csrStat2Label">도움받은 보호소 동물</span>
+            <span class="text-3xl font-black text-amber-300 font-mono mt-1 block">3,420 마리</span>
+            <span class="text-[10px] text-slate-400 mt-1 block" data-i18n="csrStat2Sub">전국 12개 보호센터 연계</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-black/30 border border-white/5">
+            <span class="text-xs text-slate-400 block" data-i18n="csrStat3Label">취약계층 반려가구 지원</span>
+            <span class="text-3xl font-black text-rose-400 font-mono mt-1 block">850 가구</span>
+            <span class="text-[10px] text-slate-400 mt-1 block" data-i18n="csrStat3Sub">정기 케어 박스 배송</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 9: B2B OVERSEAS BUYER BANNER (VIBRANT TEAL-GREEN THEME)           -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#047857] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold border border-white/20 whitespace-nowrap">
+        <i data-lucide="globe-2" class="w-3.5 h-3.5"></i>
+        <span>Overseas Buyer Partnership</span>
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight" data-i18n="ctaTitle">
+        대한민국 공인 프리미엄 펫푸드를 여러분의 국가에 런칭하세요
+      </h2>
+      <p class="text-emerald-100 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed" data-i18n="ctaDesc">
+        샘플 발송, MOQ 견적, 성분표 및 수출 검역 증명서 발급까지 K-Petfood 글로벌 비즈니스 전담팀이 신속히 안내해 드립니다.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <button onclick="openBuyerModal()" class="px-8 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm tracking-wide shadow-md transition flex items-center gap-2 whitespace-nowrap">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span data-i18n="ctaBtnInquiry">해외 바이어 수출 상담 신청</span>
+        </button>
+        <button onclick="downloadCatalogAlert()" class="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm tracking-wide transition flex items-center gap-2 whitespace-nowrap">
+          <i data-lucide="file-text" class="w-4 h-4 text-emerald-300"></i>
+          <span data-i18n="ctaBtnCatalog">2026 영문 제품 카탈로그 다운로드</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER (DEEP BLACK THEME - BG #080C10)                                    -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#080C10] text-slate-400 text-xs py-14 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Col 1: Brand Info -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center gap-2 text-white">
+            <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center">
+              <i data-lucide="paw-print" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-xl font-black">K-Petfood</span>
+            <span class="text-[10px] bg-slate-800 text-amber-300 px-2 py-0.5 rounded border border-slate-700">Gov.Certified</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed max-w-md text-xs" data-i18n="footerAbout">
+            K-Petfood는 대한민국 청정 자연의 원재료와 스마트 바이오 기술을 결합하여 전 세계 반려동물과 보호자에게 가장 신뢰받는 영양 솔루션을 제공하는 글로벌 펫케어 전문 기업입니다.
+          </p>
+          <div class="flex items-center gap-3 text-slate-500">
+            <span>사업자등록번호: 214-88-09142</span>
+            <span>|</span>
+            <span>사료제조업 등록: 제2026-충북오송-01호</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm" data-i18n="footerNavTitle">주요 메뉴</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="#hero" class="hover:text-emerald-400 transition" data-i18n="navNature">신선함과 자연</a></li>
+            <li><a href="#certification" class="hover:text-emerald-400 transition" data-i18n="navCert">정부 공인 & 시설</a></li>
+            <li><a href="#ingredients" class="hover:text-emerald-400 transition" data-i18n="navIngredients">K-특산 원재료</a></li>
+            <li><a href="#traceability" class="hover:text-emerald-400 transition" data-i18n="navTrace">생산 이력 조회</a></li>
+            <li><a href="#products" class="hover:text-emerald-400 transition" data-i18n="navProducts">제품 라인업</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Buyer & Contact -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm" data-i18n="footerContactTitle">글로벌 바이어 데스크</h4>
+          <p class="text-slate-400 leading-relaxed">
+            <strong>Headquarters:</strong> 서울특별시 강남구 테헤란로 152 강남파이낸스센터 24층<br>
+            <strong>Factory:</strong> 충청북도 청주시 흥덕구 오송생명1로 180<br>
+            <strong>Email:</strong> buyer@k-petfood.kr<br>
+            <strong>Hotline:</strong> +82-2-588-9900
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px]">
+        <div>
+          &copy; 2026 K-Petfood Inc. All rights reserved. 대한민국 정부 공인 펫푸드 공식 포털.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:underline">개인정보처리방침</a>
+          <a href="#" class="hover:underline">이용약관</a>
+          <a href="#" class="hover:underline">품질보증기준</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS: BUYER INQUIRY & PRODUCT DETAIL                                    -->
+  <!-- ========================================================================= -->
+  <div id="buyerModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeBuyerModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-700 p-1 rounded-full">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="space-y-2 mb-6">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-brand-50 text-brand-700 text-xs font-bold">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+          <span>Global B2B Partnership</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900" data-i18n="modalBuyerTitle">해외 바이어 수출 및 견적 상담</h3>
+        <p class="text-xs text-slate-500" data-i18n="modalBuyerDesc">
+          수입 희망 국가, 관심 제품군, 예상 수입 물량을 남겨주시면 24시간 내 전문 수출 매니저가 연락드립니다.
+        </p>
+      </div>
+
+      <form onsubmit="handleBuyerSubmit(event)" class="space-y-4 text-xs sm:text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formName">담당자 성명 (Name) *</label>
+            <input type="text" required placeholder="John Doe / 홍길동" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formCompany">회사명 (Company) *</label>
+            <input type="text" required placeholder="Global Pet Import LLC" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formEmail">업무용 이메일 (Work Email) *</label>
+            <input type="email" required placeholder="buyer@company.com" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formCountry">수입 희망 국가 (Country) *</label>
+            <input type="text" required placeholder="USA, Japan, Vietnam, etc." class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1" data-i18n="formCategory">관심 제품군 (Interested Lineup) *</label>
+          <select class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-500 bg-white">
+            <option value="all">전 제품 라인업 (Full Catalog)</option>
+            <option value="dog-meal">강아지 가루쌀 주식 (Dog Complete Meals)</option>
+            <option value="cat-urinary">고양이 요로계/신장 케어 건강식 (Cat Functional Diet)</option>
+            <option value="ginseng-treat">고려 인삼 & 해조류 기능성 간식 (Functional Treats)</option>
+            <option value="oem">OEM / ODM 맞춤형 사료 수탁 생산</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1" data-i18n="formVolume">예상 발주 규모 및 문의 내용 (Message) *</label>
+          <textarea rows="3" required placeholder="예상 수입 컨테이너 물량(FCL/LCL), 타겟 유통 채널, 요청 서류 등을 기재해 주세요." class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:border-brand-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-full bg-slate-900 hover:bg-brand-700 text-white font-bold text-sm tracking-wide shadow-md transition">
+          <span data-i18n="btnSubmitBuyer">상담 신청서 제출하기</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="productModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto" id="productModalBody">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
